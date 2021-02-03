@@ -1,0 +1,71 @@
+1962 Literature
+
+SELECT winner
+  FROM nobel
+ WHERE yr = 1960
+   AND subject = 'Physics'
+/////////////////////////////////
+
+Albert Einstein
+
+SELECT yr, subject, winner
+  FROM nobel
+ WHERE winner  = 'Albert Einstein'
+ 
+ //////////////////////////////////
+ Recent Peace Prizes
+
+select winner
+from nobel
+WHERE subject = 'peace' AND yr >1999
+/////////////////////////////////////////
+Literature in the 1980's
+
+select yr , subject , winner 
+from nobel
+WHERE yr >1980 and yr <1989
+////////////////////////////////////////////////
+Only Presidents
+
+SELECT yr , subject , winner FROM nobel
+  WHERE winner IN ('Theodore Roosevelt',
+                  'Woodrow Wilson',
+                  'Jimmy Carter',
+                  'Barack Obama')
+////////////////////////////////////////////////
+
+Show the winners with first name John
+select winner 
+from nobel 
+WHERE winner like  'john%'
+
+//////////////////////////////////////////////
+Show the year, subject, and name of Physics winners for 1980 together with the Chemistry winners for 1984.
+select yr , subject , winner 
+from nobel
+WHERE subject = 'physics' and yr = '1980' OR subject = 'chemistry' and yr = '1984';
+/////////////////////////////////////////////
+Show the year, subject, and name of winners for 1980 excluding Chemistry and Medicine
+
+select yr , subject , winner 
+from nobel
+where yr = 1980 AND subject not in('chemistry' , ' medicine')
+
+Show year, subject, and name of people who won a 'Medicine' prize in an early year (before 1910,
+not including 1910)together with winners of a 'Literature' prize in a later year (after 2004, including 2004)
+
+select yr , subject , winner  from nobel 
+WHERE subject = 'medicine' and yr <1910  or subject = 'literature' and yr>2003
+
+//////////////////////////////////////////////////////
+
+Find all details of the prize won by PETER GRÜNBERG
+
+select yr , subject , winner  from nobel 
+WHERE winner = 'PETER GRÜNBERG'
+
+
+////////////////////////////////////////////////////
+Find all details of the prize won by EUGENE O'NEILL
+select yr , subject , winner  from nobel 
+WHERE winner like 'EUGENE O%' and winner like '%NEILL'
